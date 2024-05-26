@@ -37,15 +37,16 @@ function LandingPage() {
           <h1>Tomato</h1>
 
           <p>From kitchen to doorstep, taste the difference</p>
+          
         </div>
-
         <button
           onClick={()=>navigate('/home')}
           className="hero__fish btn btn-outline-light"
-        >
-          <i className="fa-solid fa-arrow-right-to-bracket"></i>
+        >Get Started
+          {/* <i className="fa-solid fa-arrow-right-to-bracket"></i> */}
           {/* <img src={fish} alt="" className="hero__fish" onClick={clik}/> */}
         </button>
+
       </div>
       <article>
         <h1>Article title</h1>
