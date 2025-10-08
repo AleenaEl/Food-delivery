@@ -11,7 +11,8 @@ function FoodItem({ id, name, price, description, image }) {
     return (
       <div className="food-item  rounded">
         <div className="food-item-img-container">
-          <img className="food-item-image" src={url+"/images/"+image} alt="nothinh" />
+          {/* <img className="food-item-image" src={url+"/images/"+image} alt="nothinh" /> */}
+          <img className="food-item-image" src={image} alt="nothinh" />
           {!cartItems[id] ? (
             <img
               className="add"
