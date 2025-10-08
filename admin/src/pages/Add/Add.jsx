@@ -73,8 +73,8 @@ function Add() {
               <img
                 className="image"
                 //to set the preview of the image
-                {/* src={image?URL.createObjectURL(image):assets.upload_area} */}
-                src={image}
+                src={image?URL.createObjectURL(image):assets.upload_area} 
+                {/* src={image} */}
                 alt=""
               />
             </label>
