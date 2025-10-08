@@ -4,7 +4,8 @@ import fs from 'fs'
 // add food item
 
 const addFood = async (req,res) => {
-    let image_filename = `${req.file.filename}`
+    // let image_filename = `${req.file.filename}`
+    let image_filename = req.file ? req.file.path : null
     const { name, description, price, category } = req.body
     // const userid=req.payload
     try {
@@ -60,7 +61,7 @@ const updateFood = async (req, res) => {
     let img 
     // Check if a new file is uploaded
     if (req.file) {
-        img = `${req.file.filename}`
+        img = req.file ? req.file.path : null
     } else {
         // If no new file is uploaded, keep the old image
         const old = await foodModel.findById({ _id:id })
@@ -81,7 +82,12 @@ const removeFood = async (req, res) => {
     try {
         const food = await foodModel.findById(req.body.id)
         // delete the saved images
-        fs.unlink(`uploads/${food.image}`, () => { })
+        // fs.unlink(`uploads/${food.image}`, () => { })
+        const imageUrl = food.image;
+        if (imageUrl) {
+            const publicId = imageUrl.split("/").slice(-2).join("/").split(".")[0]; // e.g., food-delivery/IMG-timestamp-filename
+            await cloudinary.uploader.destroy(publicId);
+        }
 
 
         //delete the food data
@@ -90,7 +96,7 @@ const removeFood = async (req, res) => {
         
     } catch (error) {
         console.log(error)
-            res.json({message:false,message:'Error'});
+            res.json({success:false,message:'Error'});
     }
 }
 

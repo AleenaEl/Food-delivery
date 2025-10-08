@@ -26,7 +26,7 @@ app.use(cors())
 // separate route files 
 app.use("/food", foodRouter)
 // to access the images in the frontend
-app.use("/images", express.static('uploads'))
+// app.use("/images", express.static('uploads'))
 app.use('/user', userRouter);
 app.use("/cart",cartRouter)
 app.use("/order",orderRouter)
