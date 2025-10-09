@@ -90,6 +90,7 @@ function Update() {
       getItem();
       
     },[])
+    console.log(image ? URL.createObjectURL(image) : image)
   return (
       <div className="add">
           <h4 className="mb-3 ">Edit Items</h4>
@@ -103,7 +104,7 @@ function Update() {
             //   className="image"
               //to set the preview of the image
               // src={image ? URL.createObjectURL(image) : `${SERVER_URL}/images/`+prev} 
-              src={image ? URL.createObjectURL(image) : image+prev}
+              src={image ? URL.createObjectURL(image) : image}
               alt="im"
             />
           </label>
