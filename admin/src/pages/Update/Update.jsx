@@ -31,7 +31,7 @@ function Update() {
         
         const res = await axios.get(`${SERVER_URL}/food/get/`+ id);
         if (res.data.success) {
-            console.log(res.data.data.image);
+            // console.log(res.data.data.image);
             setData({
               name: res.data.data.name,
               description: res.data.data.description,
@@ -104,8 +104,8 @@ function Update() {
             //   className="image"
               //to set the preview of the image
               // src={image ? URL.createObjectURL(image) : `${SERVER_URL}/images/`+prev} 
-              //src={image ? URL.createObjectURL(image) : image}
-              src={image ? image : image}
+              src={image ? URL.createObjectURL(image) : prev}
+            
               alt="im"
             />
           </label>
